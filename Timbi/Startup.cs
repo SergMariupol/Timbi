@@ -53,7 +53,8 @@ namespace Timbi
             app.UseStatusCodePages();//code page
             app.UseStaticFiles();//static files
 
-
+            app.UseAuthentication();    // подключение аутентификации
+            app.UseAuthorization();
             //app.UseEndpoints(endpoints =>
             //{
             //    endpoints.MapGet("/", async context =>

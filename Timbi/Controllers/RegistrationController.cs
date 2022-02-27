@@ -7,11 +7,11 @@ using Timbi.Data.Interfaces;
 using Timbi.Data.Models;
 //using Timbi.ViewModels;
 
-namespace Web_interface.Controllers
+namespace Timbi.Controllers
 {
     public class RegistrationController : Controller
     {
-        private readonly IAllRegistration IAllRegistration;
+         private readonly IAllRegistration IAllRegistration;
 
         public RegistrationController(IAllRegistration allRegistration)
         {
@@ -19,37 +19,29 @@ namespace Web_interface.Controllers
 
         }
 
-        //private readonly IAllOrders _allOrders;
-
-        //public OrderListController(IAllOrders allOrders)
-        //{
-        //    _allOrders = allOrders;
-        //}
-
-
         public IActionResult RegistrationWindow()
-        {         
+        {
             return View();
         }
 
         [HttpPost]
         public IActionResult RegistrationWindow(User User)
         {
-            IAllRegistration.CreateUser(User);
-            return RedirectToAction("Complete");
+            if (ModelState.IsValid)
+            {
+                IAllRegistration.CreateUser(User);
+                return RedirectToAction("Complete");
+            }
+            else
+                return View();
         }
 
         public IActionResult Complete()
         {
-        ViewBag.Message = "Регистрация успешна";
-        return View();
-        }
-
-        public IActionResult RegisterWindowRegister()
-        {
+            ViewBag.Message = "Регистрация успешна";
             return View();
         }
     }
-
 }
+
 

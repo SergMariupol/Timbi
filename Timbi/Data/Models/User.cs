@@ -22,24 +22,30 @@ namespace Timbi.Data.Models
         [Display(Name = "Введите пароль")]
         [StringLength(20)]
         [Required(ErrorMessage = "Длина фамилии не менее 5 символов")]
+        [DataType(DataType.Password)]
         public string Password1 { get; set; }
 
 
         [Display(Name = "Введите повторно пароль")]
         [StringLength(20)]
+        
         [Required(ErrorMessage = "Длина адреса не менее 5 символов")]
+        [Compare("Password1", ErrorMessage = "Пароли не совпадают")]
+        [DataType(DataType.Password)]       
         public string Password2 { get; set; }
 
 
         [Display(Name = "Введите вашу электронную почту")]
-        [StringLength(20)]
+        [StringLength(40)]
         [Required(ErrorMessage = "Длина адреса не менее 5 символов")]
+        [EmailAddress]
         public string Mail { get; set; }
 
 
         [Display(Name = "Введите ваш номер телефона")]
-        [StringLength(20)]
-        [Required(ErrorMessage = "Длина адреса не менее 5 символов")]
+        //[StringLength(20, ErrorMessage = "Длина адреса не менее 5 символов")]
+        //[Required(ErrorMessage = "Длина адреса не менее 5 символов")]
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
     }
 }
