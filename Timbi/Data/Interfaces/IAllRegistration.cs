@@ -10,6 +10,6 @@ namespace Timbi.Data.Interfaces
     {
         void CreateUser(User User);
 
-        //IEnumerable<User> RegistrationList { get; }       
+        IEnumerable<User> UserList { get; }       
     }
 }

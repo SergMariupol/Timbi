@@ -11,7 +11,7 @@ namespace Timbi.Controllers
 {
     public class RegistrationController : Controller
     {
-         private readonly IAllRegistration IAllRegistration;
+        private readonly IAllRegistration IAllRegistration;
 
         public RegistrationController(IAllRegistration allRegistration)
         {

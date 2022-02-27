@@ -14,9 +14,9 @@ namespace Web_interface.Data
 
         }
         public DbSet<User> User { get; set; }
-        //public DbSet<Category> Category { get; set; }
-        //public DbSet<ShopCarItem> ShopCarItem { get; set; }
-        //public DbSet<Order> Order{ get; set; }
+        public DbSet<ServicesUser> ServicesUser { get; set; }
+        public DbSet<Company> Company { get; set; }
+        public DbSet<Main> Main{ get; set; }
         //public DbSet<OrderDetail> OrderDetail { get; set; }
 
 

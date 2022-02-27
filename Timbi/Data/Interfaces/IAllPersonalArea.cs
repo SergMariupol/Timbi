@@ -6,10 +6,10 @@ using Timbi.Data.Models;
 
 namespace Timbi.Data.Interfaces
 {
-    public interface IAllLogin
+    public interface IAllPersonalArea
     {
-        void LoginUser(Login Login);
+        //void ReadServices(User User);
 
-        IEnumerable<User> UserList { get; }       
+        IEnumerable<Main> Main { get; }       
     }
 }

@@ -9,15 +9,10 @@ namespace Timbi.Data.Models
 {
     public class Login
     {
-        [BindNever]
-        public int Id { get; set; }
-
-
         [Display(Name = "Введите логин")]
         [StringLength(20)]
         [Required(ErrorMessage = "Длина имени не менее 5 символов")]
         public string LoginUser { get; set; }
-
 
         [Display(Name = "Введите пароль")]
         [StringLength(20)]

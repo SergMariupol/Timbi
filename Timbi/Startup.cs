@@ -28,7 +28,7 @@ namespace Timbi
         {
             services.AddDbContext<AppDbContent>(options => options.UseSqlServer(confstring.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllRegistration, RegistrationRepository>();//реализация интерфейсов
-
+            services.AddTransient<IAllPersonalArea, PersonalAreaRepository>();//реализация интерфейсов
 
 
 
