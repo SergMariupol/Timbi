@@ -9,6 +9,5 @@ namespace Timbi.ViewModels
     public class PersonalAreaViewModel
     {
         public IEnumerable<Main> MainTable { get; set; }
-        //public string currCategory { get; set; }
     }
 }

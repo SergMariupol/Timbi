@@ -20,13 +20,5 @@ namespace Timbi.Data
     //    public DbSet<Main> Main { get; set; }
     //    public DbSet<User> User_ { get; set; }
 
-        //public DbSet<IdentityUserClaim<string>> IdentityUserClaim { get; set; }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<IdentityUserClaim<string>>().HasKey(p => new { p.Id });
-
-        //}
-
     //}
 }

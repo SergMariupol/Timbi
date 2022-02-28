@@ -8,13 +8,16 @@ using System.Threading.Tasks;
 namespace Timbi.Data.Models
 {
     public class ApplicationContext : IdentityDbContext<User>
-    //  public class ApplicationContext : DbContext
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
                    : base(options)
         {
             Database.EnsureCreated();
         }
-
+        public DbSet<User_> User { get; set; }
+        public DbSet<ServicesUser> ServicesUser { get; set; }
+        public DbSet<Company> Company { get; set; }
+        public DbSet<Main> Main { get; set; }
+        public DbSet<User> User_ { get; set; }
     }
 }

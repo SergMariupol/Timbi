@@ -8,8 +8,6 @@ namespace Timbi.Data.Interfaces
 {
     public interface IAllPersonalArea
     {
-        //void ReadServices(User User);
-
         IEnumerable<Main> Main { get; }       
     }
 }
