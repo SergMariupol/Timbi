@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Timbi.Data.Models
+namespace Data_Timbi.Data.Models
 {
     public class ServicesUser
     {

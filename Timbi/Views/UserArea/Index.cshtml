@@ -1,1 +1,26 @@
 ﻿
+<h1>@ViewBag.Message</h1>
+
+
+<table border="1" align="center">
+    <caption class="align-bottom"> Таблица заказов</caption>
+    <tr>
+        <th>User</th>
+        <th>Company</th>
+        <th>Название товара</th>
+        <th>Цена</th>
+
+    </tr>
+    @{
+
+        foreach (Main Main in Model.Main)
+        {
+
+        <tr align="center"><td>@Main.UserName</td><td>@Main.idCompany</td></tr>
+
+        }
+
+    }
+
+
+</table>
