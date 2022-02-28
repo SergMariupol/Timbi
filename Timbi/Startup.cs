@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Timbi.Data.Interfaces;
+//using Timbi.Data.Interfaces;
 using Timbi.Data.Models;
 using Timbi.Data.Repository;
 using Microsoft.AspNetCore.Identity;
@@ -39,7 +39,8 @@ namespace Timbi
 
             //        services.AddDbContext<ApplicationContext>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            //services.AddDbContext<DbContext>(options =>
+            //        options.UseSqlServer(confstring.GetConnectionString("DefaultConnection")));
 
 
             services.AddDbContext<ApplicationContext>(options =>

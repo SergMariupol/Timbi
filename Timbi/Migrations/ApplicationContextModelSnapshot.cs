@@ -150,60 +150,6 @@ namespace Timbi.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Timbi.Data.Models.Company", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NameCompany")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Company");
-                });
-
-            modelBuilder.Entity("Timbi.Data.Models.Main", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NameCompany")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("idCompany")
-                        .HasColumnType("int");
-
-                    b.Property<int>("idUser")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Main");
-                });
-
-            modelBuilder.Entity("Timbi.Data.Models.ServicesUser", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("idServices")
-                        .HasColumnType("int");
-
-                    b.Property<int>("idUser")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.ToTable("ServicesUser");
-                });
-
             modelBuilder.Entity("Timbi.Data.Models.User", b =>
                 {
                     b.Property<string>("Id")

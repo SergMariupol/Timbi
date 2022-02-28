@@ -14,8 +14,8 @@ namespace Timbi.Data.Models
         {
             Database.EnsureCreated();
         }
-        public DbSet<ServicesUser> ServicesUser { get; set; }
-        public DbSet<Company> Company { get; set; }
-        public DbSet<Main> Main { get; set; }
+        //public DbSet<ServicesUser> ServicesUser { get; set; }
+        //public DbSet<Company> Company { get; set; }
+        //public DbSet<Main> Main { get; set; }
     }
 }
