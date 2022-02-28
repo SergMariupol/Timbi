@@ -8,8 +8,8 @@ namespace Timbi.Data.Interfaces
 {
     public interface IAllRegistration
     {
-        void CreateUser(User User);
+        void CreateUser(User_ User);
 
-        IEnumerable<User> UserList { get; }       
+        IEnumerable<User_> UserList { get; }       
     }
 }

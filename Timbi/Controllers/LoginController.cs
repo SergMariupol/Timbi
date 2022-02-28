@@ -31,7 +31,7 @@ namespace Timbi.Controllers
         [HttpPost]
         public IActionResult LoginWindow(Login Login)
         {
-            IEnumerable<User> UserList;
+            IEnumerable<User_> UserList;
             
             UserList = IAllRegistration.UserList.Where(i => i.LoginUser == Login.LoginUser  &&  i.Password1 == Login.Password);  
             
@@ -41,7 +41,7 @@ namespace Timbi.Controllers
             }
                 else
             {
-                User a = UserList.FirstOrDefault<User>();
+                User_ a = UserList.FirstOrDefault<User_>();
                 return RedirectToAction("PersonalArea", new { c = a.Id });
             }
         }

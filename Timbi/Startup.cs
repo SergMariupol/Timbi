@@ -10,8 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Timbi.Data.Interfaces;
-using Web_interface.Data;
-using Web_interface.Data.Repository;
+using Timbi.Data.Models;
+using Timbi.Data.Repository;
+using Microsoft.AspNetCore.Identity;
+using Timbi.Data;
 
 namespace Timbi
 {
@@ -31,6 +33,20 @@ namespace Timbi
             services.AddTransient<IAllPersonalArea, PersonalAreaRepository>();//реализация интерфейсов
 
 
+            //        services.AddDbContext<ApplicationContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+            //services.AddDbContext<ApplicationContext>(options =>
+            //        options.UseSqlServer(confstring.GetConnectionString("DefaultConnection1")));
+
+            services.AddIdentity<User, IdentityRole>()
+        .AddEntityFrameworkStores<AppDbContent>();//регистрация
+
+
+            //services.AddIdentity<User, IdentityRole>()
+            //  .AddEntityFrameworkStores<AppDbContent>();//регистрация
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();           
             services.AddMvc(options => options.EnableEndpointRouting = false);// add mvc

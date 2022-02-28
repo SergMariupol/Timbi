@@ -33,13 +33,21 @@
                         <a class="nav-link" asp-controller="contact" asp-action="contactpage">Контакты <span class="sr-only">(current)</span></a>
                     </li>
 
-                    <li class="nav-item active"> @*Регистрация*@
+                    <li class="nav-item active">
+                        @*Регистрация*@
                         <a class="nav-link" asp-controller="registration" asp-action="registrationwindow">Регистрация <span class="sr-only">(current)</span></a>
                     </li>
 
-                    <li class="nav-item active"> @*Войти*@
+                    <li class="nav-item active">
+                        @*Войти*@
                         <a class="nav-link" asp-controller="login" asp-action="loginwindow">Личный кабинет <span class="sr-only">(current)</span></a>
                     </li>
+
+                    <li class="nav-item active">
+                        @*Register*@
+                        <a class="nav-link" asp-controller="Account" asp-action="register">Register <span class="sr-only">(current)</span></a>
+                    </li>
+
 
                     <!--<li class="nav-item">
         <a class="nav-link" href="/Cars/List/Fuel">Классика</a>
@@ -53,7 +61,7 @@
     <li class="nav-item">
         <a class="nav-link" href="/ShopCar/Index">Корзина</a>-->
                     <!--<a class
-        ="nav-link disabled" href="/ShopCar/Index">Корзина</a>-->
+    ="nav-link disabled" href="/ShopCar/Index">Корзина</a>-->
                     <!--</li>-->
                 </ul>
 

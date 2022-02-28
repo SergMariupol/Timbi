@@ -25,7 +25,7 @@ namespace Timbi.Controllers
         }
 
         [HttpPost]
-        public IActionResult RegistrationWindow(User User)
+        public IActionResult RegistrationWindow(User_ User)
         {
             if (ModelState.IsValid)
             {

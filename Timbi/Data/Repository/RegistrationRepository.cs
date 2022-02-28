@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Timbi.Data.Interfaces;
 using Timbi.Data.Models;
 
-namespace Web_interface.Data.Repository
+namespace Timbi.Data.Repository
 {
     public class RegistrationRepository : IAllRegistration
     {
@@ -19,12 +19,12 @@ namespace Web_interface.Data.Repository
             this.appDBContent = appDBContent;
         }
 
-        public void CreateUser(User User)
+        public void CreateUser(User_ User)
         {
             appDBContent.User.Add(User);
             appDBContent.SaveChanges();
         }
 
-        public IEnumerable<User> UserList => appDBContent.User;
+        public IEnumerable<User_> UserList => appDBContent.User;
     }
 }

@@ -1,6 +1,8 @@
 {
   "ConnectionStrings": {
-    //"DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=DbTimbi;Trusted_Connection=True;MultipleActiveResultSets=true",
-    "DefaultConnection": "Server=dbTimbi.mssql.somee.com;packet size=4096;user id=Serg_Mariupol_SQLLogin_1;pwd=l9iwkjixj4;data source=dbTimbi.mssql.somee.com;persist security info=False;initial catalog=dbTimbi"
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=DbTimbi;Trusted_Connection=True;MultipleActiveResultSets=true",
+    //"DefaultConnection": "Server=dbTimbi.mssql.somee.com;packet size=4096;user id=Serg_Mariupol_SQLLogin_1;pwd=l9iwkjixj4;data source=dbTimbi.mssql.somee.com;persist security info=False;initial catalog=dbTimbi"
+ 
+    "DefaultConnection1": "Server=(localdb)\\mssqllocaldb;Database=usersstoredb;Trusted_Connection=True;"
   }
 }

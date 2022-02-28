@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Timbi.Data.Interfaces;
 using Timbi.Data.Models;
 
-namespace Web_interface.Data.Repository
+namespace Timbi.Data.Repository
 {
     public class PersonalAreaRepository : IAllPersonalArea
     {
