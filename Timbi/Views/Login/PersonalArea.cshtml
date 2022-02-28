@@ -1,1 +1,30 @@
-﻿<h3 align="center"> Личный кабинет </h3>
+﻿
+
+<h3 align="center"> Личный кабинет </h3>
+
+<table border="1" align="center">
+    <caption class="align-bottom"> Таблица заказов</caption>
+    <tr>
+        <th>ID</th>
+        <th>ID компании</th>
+        <th>ID пользователя</th>
+        <th>Название компании</th>
+
+    </tr>
+    @{
+
+        foreach (Main Main in Model.MainTable)
+        {
+
+            <tr align="center"><td>@Main.id</td><td>@Main.idCompany</td><td>@Main.idUser</td><td>@Main.NameCompany</td></tr>
+
+        }
+
+    }
+
+
+
+
+
+
+</table>

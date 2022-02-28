@@ -9,7 +9,7 @@ using Web_interface.Data;
 namespace Timbi.Migrations
 {
     [DbContext(typeof(AppDbContent))]
-    [Migration("20220227130149_first")]
+    [Migration("20220227174101_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -41,11 +41,7 @@ namespace Timbi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-
-            }
+          
             app.UseMvcWithDefaultRoute();
 
             app.UseRouting();
@@ -81,7 +77,7 @@ namespace Timbi
             app.UseMvc(routes =>
             {
                 routes.MapRoute(name: "default", template: "{controller = Home}/{ation=index}/{id?}");
-                routes.MapRoute(name: "categoryFilter", template: "{controller = Home}/{ation=index}/{category?}", defaults: new { Controller = "Start", action = "StartPage" });
+               // routes.MapRoute(name: "categoryFilter", template: "{controller = Home}/{ation=index}/{category?}", defaults: new { Controller = "Start", action = "StartPage" });
             });
 
             //using (var scope = app.ApplicationServices.CreateScope())
