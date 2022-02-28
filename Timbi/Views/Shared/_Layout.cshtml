@@ -34,23 +34,8 @@
                     </li>
 
                     <li class="nav-item active">
-                        @*Регистрация*@
-                        <a class="nav-link" asp-controller="registration" asp-action="registrationwindow">Регистрация <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item active">
-                        @*Личный кабинет*@
-                        <a class="nav-link" asp-controller="login" asp-action="loginwindow">Личный кабинет <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item active">
-                        @*Register*@
-                        <a class="nav-link" asp-controller="Account" asp-action="register">Register <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item active">
-                    @*Adminka*@
-                    <a class="nav-link" asp-controller="Users" asp-action="Index">Админ панель <span class="sr-only">(current)</span></a>
+                        @*Adminka*@
+                        <a class="nav-link" asp-controller="Users" asp-action="Index">Админ панель <span class="sr-only">(current)</span></a>
                     </li>
 
 
@@ -59,12 +44,20 @@
                 </ul>
                 @if (User.Identity.IsAuthenticated)
                 {
+                    <form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="Account" asp-action="Login">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Личный кабинет</button>
+                    </form>
+
                     <form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="Account" asp-action="Logout">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Выход</button>
                     </form>
                 }
                 else
                 {
+                    <form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="Account" asp-action="Register">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</button>
+                    </form>
+
                     <form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="Account" asp-action="Login">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Войти</button>
                     </form>

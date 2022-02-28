@@ -1,8 +1,11 @@
 ﻿<h1>Стартовая</h1>
 
-@if (User.Identity.IsAuthenticated)
+@*if (User.Identity.IsAuthenticated)
 {
     <p>@User.Identity.Name</p>
+
+    
+
 
     <form method="post" asp-controller="Account" asp-action="Logout">
         <input type="submit" value="Выход" />
@@ -12,4 +15,4 @@ else
 {
     <a asp-controller="Account" asp-action="Login">Вход</a>
     <a asp-controller="Account" asp-action="Register">Регистрация</a>
-}
+}*@
