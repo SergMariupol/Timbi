@@ -9,6 +9,10 @@ namespace Timbi.Controllers
 {
     public class UserAreaController : Controller
     {
-       
+        [HttpPost]
+        public IActionResult Index(string email)
+        {
+            return View();
+        }
     }
 }

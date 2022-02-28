@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\UserArea\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

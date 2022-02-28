@@ -44,7 +44,9 @@
                 </ul>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="Account" asp-action="Login">
+
+
+                    <form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="UserArea" asp-action="Index" >
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Личный кабинет</button>
                     </form>
 
