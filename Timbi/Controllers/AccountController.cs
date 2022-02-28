@@ -34,6 +34,8 @@ namespace Timbi.Controllers
                 {
                     // установка куки
                     //await _signInManager.SignInAsync(user, false);
+                    await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+
                     return RedirectToAction("StartPage", "Start");
                 }
                 else

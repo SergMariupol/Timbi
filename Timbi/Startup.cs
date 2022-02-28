@@ -28,9 +28,13 @@ namespace Timbi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContent>(options => options.UseSqlServer(confstring.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IAllRegistration, RegistrationRepository>();//реализация интерфейсов
-            services.AddTransient<IAllPersonalArea, PersonalAreaRepository>();//реализация интерфейсов
+            //services.AddDbContext<AppDbContent>(options => options.UseSqlServer(confstring.GetConnectionString("DefaultConnection")));
+
+
+
+
+            //services.AddTransient<IAllRegistration, RegistrationRepository>();//реализация интерфейсов
+            //services.AddTransient<IAllPersonalArea, PersonalAreaRepository>();//реализация интерфейсов
 
 
             //        services.AddDbContext<ApplicationContext>(options =>
@@ -38,11 +42,11 @@ namespace Timbi
 
 
 
-            //services.AddDbContext<ApplicationContext>(options =>
-            //        options.UseSqlServer(confstring.GetConnectionString("DefaultConnection1")));
+            services.AddDbContext<ApplicationContext>(options =>
+                    options.UseSqlServer(confstring.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>()
-        .AddEntityFrameworkStores<AppDbContent>();//регистрация
+        .AddEntityFrameworkStores<ApplicationContext>();//регистрация
 
 
             //services.AddIdentity<User, IdentityRole>()
@@ -58,15 +62,19 @@ namespace Timbi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
           
-            app.UseMvcWithDefaultRoute();
+           
 
-            app.UseRouting();
+            
             app.UseDeveloperExceptionPage();//error list
             app.UseStatusCodePages();//code page
             app.UseStaticFiles();//static files
 
             app.UseAuthentication();    // подключение аутентификации
             app.UseAuthorization();
+
+
+            app.UseRouting();
+            app.UseMvcWithDefaultRoute();
             //app.UseEndpoints(endpoints =>
             //{
             //    endpoints.MapGet("/", async context =>

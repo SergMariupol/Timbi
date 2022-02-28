@@ -8,23 +8,23 @@ using Timbi.Data.Models;
 
 namespace Timbi.Data.Repository
 {
-    public class PersonalAreaRepository : IAllPersonalArea
-    {
-        private readonly AppDbContent appDBContent;
+    //public class PersonalAreaRepository : IAllPersonalArea
+    //{
+    //    private readonly AppDbContent appDBContent;
 
-        //private readonly Register Register;
+    //    //private readonly Register Register;
 
-        public PersonalAreaRepository(AppDbContent appDBContent)
-        {
-            this.appDBContent = appDBContent;
-        }
+    //    public PersonalAreaRepository(AppDbContent appDBContent)
+    //    {
+    //        this.appDBContent = appDBContent;
+    //    }
 
-        //public void CreateUser(User User)
-        //{
-        //    appDBContent.User.Add(User);
-        //    appDBContent.SaveChanges();
-        //}
+    //    //public void CreateUser(User User)
+    //    //{
+    //    //    appDBContent.User.Add(User);
+    //    //    appDBContent.SaveChanges();
+    //    //}
 
-        public IEnumerable<Main> Main => appDBContent.Main;
-    }
+    //    public IEnumerable<Main> Main => appDBContent.Main;
+    //}
 }

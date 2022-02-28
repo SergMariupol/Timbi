@@ -39,7 +39,7 @@
                     </li>
 
                     <li class="nav-item active">
-                        @*Войти*@
+                        @*Личный кабинет*@
                         <a class="nav-link" asp-controller="login" asp-action="loginwindow">Личный кабинет <span class="sr-only">(current)</span></a>
                     </li>
 
@@ -48,27 +48,27 @@
                         <a class="nav-link" asp-controller="Account" asp-action="register">Register <span class="sr-only">(current)</span></a>
                     </li>
 
+                    <li class="nav-item active">
+                    @*Adminka*@
+                    <a class="nav-link" asp-controller="Users" asp-action="Index">Админ панель <span class="sr-only">(current)</span></a>
+                    </li>
 
-                    <!--<li class="nav-item">
-        <a class="nav-link" href="/Cars/List/Fuel">Классика</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/Cars/List/Electro">Электро</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/Home/Index">Лучшие</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/ShopCar/Index">Корзина</a>-->
-                    <!--<a class
-    ="nav-link disabled" href="/ShopCar/Index">Корзина</a>-->
-                    <!--</li>-->
+
+
+
                 </ul>
-
-                <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="Account" asp-action="Logout">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Выход</button>
+                    </form>
+                }
+                else
+                {
+                    <form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="Account" asp-action="Login">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Войти</button>
+                    </form>
+                }
             </div>
             <p></p>
        

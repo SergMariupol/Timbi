@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,25 @@ using Timbi.Data.Models;
 
 namespace Timbi.Data
 {
-    public class AppDbContent : DbContext
-    {
-        public AppDbContent(DbContextOptions<AppDbContent> options) : base(options)
-        {
+    //public class AppDbContent : DbContext
+    //{
+    //    public AppDbContent(DbContextOptions<AppDbContent> options) : base(options)
+    //    {
            
-        }
-        public DbSet<User_> User { get; set; }
-        public DbSet<ServicesUser> ServicesUser { get; set; }
-        public DbSet<Company> Company { get; set; }
-        public DbSet<Main> Main { get; set; }
-        public DbSet<User> User_ { get; set; }
+    //    }
+    //    public DbSet<User_> User { get; set; }
+    //    public DbSet<ServicesUser> ServicesUser { get; set; }
+    //    public DbSet<Company> Company { get; set; }
+    //    public DbSet<Main> Main { get; set; }
+    //    public DbSet<User> User_ { get; set; }
 
+        //public DbSet<IdentityUserClaim<string>> IdentityUserClaim { get; set; }
 
-    }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<IdentityUserClaim<string>>().HasKey(p => new { p.Id });
+
+        //}
+
+    //}
 }

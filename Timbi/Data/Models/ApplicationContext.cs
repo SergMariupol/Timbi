@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Timbi.Data.Models
 {
-  //  public class ApplicationContext : IdentityDbContext<User>
-  ////  public class ApplicationContext : DbContext
-  //  {
-  //      public ApplicationContext(DbContextOptions<ApplicationContext> options)
-  //                 : base(options)
-  //      {
-  //          Database.EnsureCreated();
-  //      }
+    public class ApplicationContext : IdentityDbContext<User>
+    //  public class ApplicationContext : DbContext
+    {
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+                   : base(options)
+        {
+            Database.EnsureCreated();
+        }
 
-  //  }
+    }
 }
