@@ -9,6 +9,7 @@ using Timbi.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Timbi.Data.Interfaces;
 using Timbi.Data.Repository;
+using Timbi.Data;
 
 namespace Timbi
 {
@@ -101,11 +102,11 @@ namespace Timbi
                // routes.MapRoute(name: "categoryFilter", template: "{controller = Home}/{ation=index}/{category?}", defaults: new { Controller = "Start", action = "StartPage" });
             });
 
-            //using (var scope = app.ApplicationServices.CreateScope())
-            //{
-            //    AppDbContent content = scope.ServiceProvider.GetRequiredService<AppDbContent>();
-            //    DBObjects.Initial(content);
-            //}
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                ApplicationContext content = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+                DBObjects.Initial(content);
+            }
         }
     }
 }

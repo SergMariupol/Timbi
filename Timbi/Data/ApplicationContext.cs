@@ -11,6 +11,7 @@ namespace Timbi.Data.Models
         {
             Database.EnsureCreated();
         }
+        public DbSet<Region> Region { get; set; }
         public DbSet<TypeService> TypeService { get; set; }
         public DbSet<Company> Company { get; set; }
         public DbSet<Main> Main { get; set; }
