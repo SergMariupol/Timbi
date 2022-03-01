@@ -19,13 +19,18 @@ namespace Timbi.Data.Models
     }
     public class TypeService
     {
+        public int id { get; set; }
+
         public string TypeServices { get; set; }
 
-        public Company Company { get; set; }
+        //public Company Company { get; set; }
     }
     public class Region
     {
+        public int id { get; set; }
+
         public string RegionCompany { get; set; }
- 
+
+        //public Company Company { get; set; }
     }
 }

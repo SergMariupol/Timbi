@@ -10,7 +10,6 @@ namespace Timbi.Data
 {
     public class DBObjects
     {
- 
         public static void Initial(ApplicationContext content)
         {
             if (!content.TypeService.Any())
@@ -39,12 +38,11 @@ namespace Timbi.Data
                     new Company
                     {
                         NameCompany = "Запорожские электросети",
-                        Region = Regions["Хапорожье"],
+                        Region = Regions["Запорожская"],
                         TypeService = TypeService["Электричество"],
                         img = "/img/CompanyIcon/Tesla.jpg",
                     });
             }
-
             content.SaveChanges();
         }
 

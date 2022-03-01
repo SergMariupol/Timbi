@@ -10,7 +10,7 @@ using Timbi.Data.Models;
 namespace Timbi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220301104853_first")]
+    [Migration("20220301143740_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -152,6 +152,34 @@ namespace Timbi.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Timbi.Data.Models.Company", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NameCompany")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Regionid")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TypeServiceid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("img")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Regionid");
+
+                    b.HasIndex("TypeServiceid");
+
+                    b.ToTable("Company");
+                });
+
             modelBuilder.Entity("Timbi.Data.Models.Main", b =>
                 {
                     b.Property<int>("id")
@@ -174,6 +202,36 @@ namespace Timbi.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Main");
+                });
+
+            modelBuilder.Entity("Timbi.Data.Models.Region", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("RegionCompany")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Region");
+                });
+
+            modelBuilder.Entity("Timbi.Data.Models.TypeService", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TypeServices")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("TypeService");
                 });
 
             modelBuilder.Entity("Timbi.Data.Models.User", b =>
@@ -293,6 +351,21 @@ namespace Timbi.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Timbi.Data.Models.Company", b =>
+                {
+                    b.HasOne("Timbi.Data.Models.Region", "Region")
+                        .WithMany()
+                        .HasForeignKey("Regionid");
+
+                    b.HasOne("Timbi.Data.Models.TypeService", "TypeService")
+                        .WithMany()
+                        .HasForeignKey("TypeServiceid");
+
+                    b.Navigation("Region");
+
+                    b.Navigation("TypeService");
                 });
 #pragma warning restore 612, 618
         }

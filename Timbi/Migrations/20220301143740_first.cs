@@ -64,6 +64,32 @@ namespace Timbi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Region",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RegionCompany = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Region", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TypeService",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TypeServices = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TypeService", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -169,6 +195,34 @@ namespace Timbi.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Company",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameCompany = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    img = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TypeServiceid = table.Column<int>(type: "int", nullable: true),
+                    Regionid = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Company", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Company_Region_Regionid",
+                        column: x => x.Regionid,
+                        principalTable: "Region",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Company_TypeService_TypeServiceid",
+                        column: x => x.TypeServiceid,
+                        principalTable: "TypeService",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -207,6 +261,16 @@ namespace Timbi.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Company_Regionid",
+                table: "Company",
+                column: "Regionid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Company_TypeServiceid",
+                table: "Company",
+                column: "TypeServiceid");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -227,6 +291,9 @@ namespace Timbi.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Company");
+
+            migrationBuilder.DropTable(
                 name: "Main");
 
             migrationBuilder.DropTable(
@@ -234,6 +301,12 @@ namespace Timbi.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Region");
+
+            migrationBuilder.DropTable(
+                name: "TypeService");
         }
     }
 }
