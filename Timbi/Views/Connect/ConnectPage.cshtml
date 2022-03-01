@@ -2,37 +2,24 @@
 <h1 align="center">Подключение</h1>
 <br />
 <br />
-
 <div>
-
     <form class="col-form-label" method="post" asp-controller="Connect" asp-action="ConnectPage">
-        @*<div asp-validation-summary="ModelOnly"></div>*@
         <p>Регион</p>
-
         <select asp-for="RegionFact">
-            @{
-                foreach (Region Region in Model.Regions)
+        @foreach (Region Region in Model.Regions)
                 {
                     <option value="@Region.RegionCompany">@Region.RegionCompany</option>
-                }
-            }
+                }           
         </select>
         <br />
         <br />
-
         <p>Статус</p>
-
         <p></p>
-
-
-
         @foreach (var status in Model.Status)
         {
             <input type="radio" asp-for="StatusFact" value="@status" /> @status <span asp-validation-for="StatusFact"></span> <br />
-
         }
         <br />
-
         <p>Услуги</p>
         <p></p>
         @foreach (TypeService type in Model.TypeService)
@@ -41,30 +28,27 @@
 
         }
         <br />
-
-
-
-
-
         <input type="submit" />
         <br />
     </form>
 </div>
-
-
 <br />
+<div>
 
+    <div class="container" align="center">
 
+        <div class="row col-md-12">
+            @{
+                foreach (Company Company in Model.Company)
+                {
+                    @Html.Partial("AllCompany", Company)
+                }
+            }
+        </div>
 
+    </div>
 
-
-
-
-
-
- @*method="post" asp-controller="Connect" asp-action="ConnectPage_two"*@
-@*<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Далее</button>*@
-
+</div>
 <br />
 <br />
 <br />
