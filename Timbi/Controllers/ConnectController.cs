@@ -22,12 +22,48 @@ namespace Timbi.Controllers
 
             UserArea.Regions = IAllUserArea.Region;
 
+            UserArea.TypeService = IAllUserArea.TypeService;
+
             return View(UserArea);
         }
 
         [HttpPost]
+        public IActionResult ConnectPage(UserAreaViewModel UserAreaViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("StartPage", "Start");
+            }
+            else
+            {
+                UserAreaViewModel.Regions = IAllUserArea.Region;
+
+                UserAreaViewModel.TypeService = IAllUserArea.TypeService;
+
+                return View(UserAreaViewModel);
+
+            }
+        }
+
+
+
+
+
+
+
+
+            [HttpPost]
         public IActionResult ConnectPage_two(UserAreaViewModel UserAreaViewModel)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    return RedirectToAction("StartPage", "Start");
+            //}
+            //else
+            //{
+            //    return View(UserAreaViewModel);
+
+            //}
             return View();
         }
     }

@@ -5,10 +5,11 @@
 
 <div>
 
-    <form class="col-form-label" method="post" asp-controller="Connect" asp-action="ConnectPage_Two">
+    <form class="col-form-label" method="post" asp-controller="Connect" asp-action="ConnectPage">
+        @*<div asp-validation-summary="ModelOnly"></div>*@
         <p>Регион</p>
 
-        <select  asp-for="Region">
+        <select asp-for="RegionFact">
             @{
                 foreach (Region Region in Model.Regions)
                 {
@@ -27,13 +28,19 @@
 
         @foreach (var status in Model.Status)
         {
-            <input type="radio" asp-for="Statusfact" value="@status" />@status<br />
+            <input type="radio" asp-for="StatusFact" value="@status" /> @status <span asp-validation-for="StatusFact"></span> <br />
+
         }
         <br />
 
+        <p>Услуга</p>
+        <p></p>
+        @foreach (TypeService type in Model.TypeService)
+        {
+            <input type="radio" asp-for="TypeServiceFact" value="@type.TypeServices" /> @type.TypeServices <span asp-validation-for="TypeServiceFact"></span> <br />
 
-
-   
+        }
+        <br />
 
 
 
