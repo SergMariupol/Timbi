@@ -18,6 +18,7 @@ namespace Timbi.Data.Repository
         public IEnumerable<Region> Region => ApplicationContext.Region;
         public IEnumerable<TypeService> TypeService => ApplicationContext.TypeService;
         public IEnumerable<Main> Main => ApplicationContext.Main;
+        public IEnumerable<Company> Company => ApplicationContext.Company;
     }
     
 }

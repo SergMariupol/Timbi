@@ -21,8 +21,8 @@ namespace Timbi.Controllers
             UserAreaViewModel UserArea = new UserAreaViewModel();
 
             UserArea.Regions = IAllUserArea.Region;
-
             UserArea.TypeService = IAllUserArea.TypeService;
+            UserArea.Company = IAllUserArea.Company;
 
             return View(UserArea);
         }
@@ -37,8 +37,8 @@ namespace Timbi.Controllers
             else
             {
                 UserAreaViewModel.Regions = IAllUserArea.Region;
-
                 UserAreaViewModel.TypeService = IAllUserArea.TypeService;
+                UserAreaViewModel.Company = IAllUserArea.Company;
 
                 return View(UserAreaViewModel);
 

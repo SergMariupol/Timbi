@@ -26,6 +26,8 @@ namespace Timbi.ViewModels
 
         [Required(ErrorMessage = "Заполните поле")]
         public string TypeServiceFact { get; set; }
-        
+
+        public IEnumerable<Company> Company { get; set; }
+
     }
 }

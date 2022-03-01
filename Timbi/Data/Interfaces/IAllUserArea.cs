@@ -8,5 +8,7 @@ namespace Timbi.Data.Interfaces
         IEnumerable<Main> Main { get; }
         IEnumerable<Region> Region { get; }
         IEnumerable<TypeService> TypeService { get; }
+        IEnumerable<Company> Company { get; }
+
     }
 }
