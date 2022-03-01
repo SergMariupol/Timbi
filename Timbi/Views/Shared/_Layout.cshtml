@@ -30,18 +30,18 @@
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link" asp-controller="contact" asp-action="contactpage">Контакты <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" asp-controller="contact" asp-action="contactpage">Контакты<span class="sr-only">(current)</span></a>
                     </li>
+                   
+                        @if (String.Compare(User.Identity.Name, "serg.mariupolcity@gmail.com", StringComparison.OrdinalIgnoreCase) == 0)
+                        {
+                            <li class="nav-item active">
+                                @*Adminka*@
+                                <a class="nav-link" asp-controller="AdminPanel" asp-action="Index">Админ панель <span class="sr-only">(current)</span></a>
+                            </li>
+                        }
 
-                    <li class="nav-item active">
-                        @*Adminka*@
-                        <a class="nav-link" asp-controller="Users" asp-action="Index">Админ панель <span class="sr-only">(current)</span></a>
-                    </li>
-
-
-
-
-                </ul>
+                    </ul>
                 @if (User.Identity.IsAuthenticated)
                 {
                     <form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="UserArea" asp-action="Index">

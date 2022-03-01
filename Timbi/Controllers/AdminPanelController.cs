@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace Timbi.Controllers
 {
-    public class UsersController : Controller
+    public class AdminPanelController : Controller
     {
         UserManager<User> _userManager;
 
-        public UsersController(UserManager<User> userManager)
+        public AdminPanelController(UserManager<User> userManager)
         {
             _userManager = userManager;
         }
@@ -94,7 +94,6 @@ namespace Timbi.Controllers
         }
 
 
-
         public async Task<IActionResult> ChangePassword(string id)
         {
             User user = await _userManager.FindByIdAsync(id);
@@ -144,7 +143,6 @@ namespace Timbi.Controllers
         }
 
 
-
         public async Task<IActionResult> ChangePasswordUser(string id)
         {
             User user = await _userManager.FindByIdAsync(id);
@@ -185,5 +183,6 @@ namespace Timbi.Controllers
             return View(model);
         }
 
+        public IActionResult Company() => View();
     }
 }

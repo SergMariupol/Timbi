@@ -1,14 +1,21 @@
 ﻿@model IEnumerable<Timbi.Data.Models.User>
-    @{
+
+<form class="form-inline mt-2 mt-md-0 mr-2" method="post" asp-controller="AdminPanel" asp-action="Company">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Работа с компаниями</button>
+</form>
+<br />
+
+@{
     ViewBag.Title = "Список пользователей";
-    }
+}
+<br />
 
-    <a asp-action="Create">Добавить пользователя</a>
+<a asp-action="Create">Добавить пользователя</a>
 
-    <table class="table">
-        <tr><th>Email</th><th>Год</th><th></th></tr>
-        @foreach (var user in Model)
-        {
+<table class="table">
+    <tr><th>Email</th><th>Год</th><th></th></tr>
+    @foreach (var user in Model)
+    {
         <tr>
             <td>@user.Email</td>
             <td>@user.Year</td>
@@ -23,5 +30,5 @@
                 </form>
             </td>
         </tr>
-        }
-    </table>
+    }
+</table>
