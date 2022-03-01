@@ -1,1 +1,25 @@
-﻿<h1>Connect</h1>
+﻿@model UserAreaViewModel
+<h1>Connect</h1>
+<br />
+<br />
+<select name="user_profile_color_1">
+    @{
+        foreach (Main Main in Model.Main)
+        {
+
+        <option value="1">@Main.UserName</option> 
+
+        }
+    }
+
+
+
+    @*<option value="1">Синий</option>
+    <option value="2">Зеленый</option>
+    <option value="3">Желтый</option>
+    <option value="4">Красный</option>
+    <option value="5">Оранжевый</option>
+    <option value="6">Черный</option>*@
+</select>
+<br />
+<br />

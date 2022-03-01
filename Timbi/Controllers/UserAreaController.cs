@@ -1,33 +1,32 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Timbi.ViewModels;
-using Timbi.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Linq;
-using Data_Timbi.Data.Interfaces;
-using Data_Timbi.Data.Models;
-using Data_Timbi.Data;
+using Timbi.Data.Models;
+using Timbi.Data.Interfaces;
+using Timbi.ViewModels;
 
 namespace Timbi.Controllers
 {
     public class UserAreaController : Controller
     {
+        private readonly IAllUserArea IAllUserArea;
+        public UserAreaController(IAllUserArea _IAllUserArea)
+        {
+            IAllUserArea = _IAllUserArea;
+        }
+
+
 
         [HttpPost]
         public IActionResult Index()
         {
-            AppDbContent context = new AppDbContent();
+            UserAreaViewModel UserArea = new UserAreaViewModel();
 
-            Main a = new Main();
+            UserArea.Main = IAllUserArea.Main.Where(i => i.id == 1);
 
-            a.UserName = "Asd";
-
-            context.Main.Add(a);
-            context.SaveChanges();
-
-            //IEnumerable<Main> Main = IAllPersonalArea.Main.Where(i => i.UserName == User.Identity.Name);
-            return View();
+            return View(UserArea);
         }
     }
 }

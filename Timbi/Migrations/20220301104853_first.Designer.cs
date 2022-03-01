@@ -10,8 +10,8 @@ using Timbi.Data.Models;
 namespace Timbi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220228204931_second")]
-    partial class second
+    [Migration("20220301104853_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -150,6 +150,30 @@ namespace Timbi.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Timbi.Data.Models.Main", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NameCompany")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("idCompany")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idUser")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Main");
                 });
 
             modelBuilder.Entity("Timbi.Data.Models.User", b =>

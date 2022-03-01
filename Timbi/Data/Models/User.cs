@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace Timbi.Data.Models
 {
-
         public class User : IdentityUser
         {
             public int Year { get; set; }
-        }
-    
+        }    
 }

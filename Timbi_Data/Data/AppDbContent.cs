@@ -15,14 +15,14 @@ namespace Data_Timbi.Data
         //}
         // Имя будущей базы данных можно указать через
         // вызов конструктора базового класса
-        public AppDbContent() : base("DbTimbi")
-        { 
+        //public AppDbContent() : base("DbTimbi")
+        //{ 
         
-        }
+        //}
 
-        // Отражение таблиц базы данных на свойства с типом DbSet
-        public DbSet<ServicesUser> ServicesUser { get; set; }
-        public DbSet<Company> Company { get; set; }
-        public DbSet<Main> Main { get; set; }
+        //// Отражение таблиц базы данных на свойства с типом DbSet
+        //public DbSet<ServicesUser> ServicesUser { get; set; }
+        //public DbSet<Company> Company { get; set; }
+        //public DbSet<Main> Main { get; set; }
     }
 }

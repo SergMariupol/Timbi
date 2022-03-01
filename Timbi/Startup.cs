@@ -4,16 +4,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-//using Timbi.Data.Interfaces;
+
 using Timbi.Data.Models;
-using Timbi.Data.Repository;
 using Microsoft.AspNetCore.Identity;
-using Timbi.Data;
+using Timbi.Data.Interfaces;
+using Timbi.Data.Repository;
 
 namespace Timbi
 {
@@ -31,9 +26,10 @@ namespace Timbi
             //services.AddDbContext<AppDbContent>(options => options.UseSqlServer(confstring.GetConnectionString("DefaultConnection")));
 
 
+            //services.AddTransient<Main>(new Main());
 
+            //services.AddTransient<IAllPersonalArea, PersonalAreaRepository>();
 
-            //services.AddTransient<IAllRegistration, RegistrationRepository>();//реализация интерфейсов
             //services.AddTransient<IAllPersonalArea, PersonalAreaRepository>();//реализация интерфейсов
 
 
@@ -41,7 +37,7 @@ namespace Timbi
             //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDbContext<DbContext>(options =>
             //        options.UseSqlServer(confstring.GetConnectionString("DefaultConnection")));
-
+            services.AddTransient<IAllUserArea, UserAreaRepository>();//реализация интерфейсов
 
             services.AddDbContext<ApplicationContext>(options =>
                     options.UseSqlServer(confstring.GetConnectionString("DefaultConnection")));

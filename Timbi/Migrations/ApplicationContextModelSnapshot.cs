@@ -150,6 +150,30 @@ namespace Timbi.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Timbi.Data.Models.Main", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NameCompany")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("idCompany")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idUser")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Main");
+                });
+
             modelBuilder.Entity("Timbi.Data.Models.User", b =>
                 {
                     b.Property<string>("Id")

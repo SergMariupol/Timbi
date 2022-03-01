@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Timbi.Data.Models
 {
@@ -15,7 +12,7 @@ namespace Timbi.Data.Models
             Database.EnsureCreated();
         }
         //public DbSet<ServicesUser> ServicesUser { get; set; }
-        //public DbSet<Company> Company { get; set; }
-        //public DbSet<Main> Main { get; set; }
+        public DbSet<Company> Company { get; set; }
+        public DbSet<Main> Main { get; set; }
     }
 }

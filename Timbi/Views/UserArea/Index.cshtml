@@ -1,4 +1,4 @@
-﻿
+﻿@model UserAreaViewModel
 <h1>@ViewBag.Message</h1>
 
 
@@ -12,15 +12,13 @@
 
     </tr>
     @{
+            foreach (Main Main in Model.Main)
+            {
 
-        @*foreach (Main Main in Model.Main)
-        {
+            <tr align="center"><td>@Main.UserName</td><td>@Main.idCompany</td></tr>
 
-        <tr align="center"><td>@Main.UserName</td><td>@Main.idCompany</td></tr>
-
-        }*@
-
-    }
+            }
+        }
 
 
 </table>

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Data_Timbi.Data.Interfaces
 {
-    public interface IAllPersonalArea
-    {
-        //IEnumerable<Main> Main { get; }
-    }
+    //public interface IAllPersonalArea
+    //{
+    //    //IEnumerable<Main> Main { get; }
+    //}
 }

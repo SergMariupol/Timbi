@@ -26,8 +26,4 @@
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Timbi_Data\Timbi_Data.csproj" />
-  </ItemGroup>
-
 </Project>
