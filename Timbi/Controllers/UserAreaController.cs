@@ -24,7 +24,7 @@ namespace Timbi.Controllers
         {
             UserAreaViewModel UserArea = new UserAreaViewModel();
 
-            UserArea.Main = IAllUserArea.Main.Where(i => i.id == 1);
+            UserArea.Regions = IAllUserArea.Region;
 
             return View(UserArea);
         }

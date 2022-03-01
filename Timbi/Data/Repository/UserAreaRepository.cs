@@ -15,6 +15,7 @@ namespace Timbi.Data.Repository
         {
             this.ApplicationContext = ApplicationContext;
         }
+        public IEnumerable<Region> Region => ApplicationContext.Region;
         public IEnumerable<Main> Main => ApplicationContext.Main;
     }
     

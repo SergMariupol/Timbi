@@ -1,25 +1,63 @@
 ﻿@model UserAreaViewModel
-<h1>Connect</h1>
+<h1 align="center">Подключение</h1>
 <br />
 <br />
-<select name="user_profile_color_1">
-    @{
-        foreach (Main Main in Model.Main)
+
+<div>
+
+    <form class="col-form-label" method="post" asp-controller="Connect" asp-action="ConnectPage_Two">
+        <p>Регион</p>
+
+        <select  asp-for="Region">
+            @{
+                foreach (Region Region in Model.Regions)
+                {
+                    <option value="@Region.RegionCompany">@Region.RegionCompany</option>
+                }
+            }
+        </select>
+        <br />
+        <br />
+
+        <p>Статус</p>
+
+        <p></p>
+
+
+
+        @foreach (var status in Model.Status)
         {
-
-        <option value="1">@Main.UserName</option> 
-
+            <input type="radio" asp-for="Statusfact" value="@status" />@status<br />
         }
-    }
+        <br />
 
 
 
-    @*<option value="1">Синий</option>
-    <option value="2">Зеленый</option>
-    <option value="3">Желтый</option>
-    <option value="4">Красный</option>
-    <option value="5">Оранжевый</option>
-    <option value="6">Черный</option>*@
-</select>
+   
+
+
+
+
+
+        <input type="submit" />
+        <br />
+    </form>
+</div>
+
+
+<br />
+
+
+
+
+
+
+
+
+
+ @*method="post" asp-controller="Connect" asp-action="ConnectPage_two"*@
+@*<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Далее</button>*@
+
+<br />
 <br />
 <br />

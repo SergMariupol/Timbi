@@ -6,5 +6,6 @@ namespace Timbi.Data.Interfaces
    public interface IAllUserArea
     {
         IEnumerable<Main> Main { get; }
+        IEnumerable<Region> Region { get; }
     }
 }
