@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\img\CompanyIcon\" />
+    <Folder Include="Files\" />
   </ItemGroup>
 
   <ItemGroup>

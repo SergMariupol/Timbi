@@ -78,26 +78,25 @@ namespace Timbi.Controllers
 
 
 
-
-
-
-
-
            
         public IActionResult ConnectPage_two(string id)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    return RedirectToAction("StartPage", "Start");
-            //}
-            //else
-            //{
-            //    return View(UserAreaViewModel);
 
-            //}
-
-            
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult ConnectPage_two(Connect connect)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("StartPage", "Start");
+            }
+            else
+            {
+                return View(connect);
+            }
+                
         }
     }
 }
