@@ -31,5 +31,6 @@ namespace Timbi.ViewModels
 
         public string CompanyFact { get; set; }
 
+        public bool PageOneComplete { get; set; }
     }
 }

@@ -33,7 +33,36 @@ namespace Timbi.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("StartPage", "Start");
+                UserAreaViewModel.CompanyFact = company;
+                UserAreaViewModel.Regions = IAllUserArea.Region;
+                UserAreaViewModel.TypeService = IAllUserArea.TypeService;
+                UserAreaViewModel.Company = IAllUserArea.Company.Where(i => i.TypeService.TypeServices == UserAreaViewModel.TypeServiceFact &&
+                i.Region.RegionCompany == UserAreaViewModel.RegionFact);
+
+                string aa = null ;
+                //if(ModelState.IsValid && (UserAreaViewModel.CompanyFact != null))
+                var a = IAllUserArea.Company.Where(i => i.NameCompany == UserAreaViewModel.CompanyFact);
+                foreach(Company Company in a)
+                {
+                     aa = Company.NameCompany;
+                }
+
+
+                if (ModelState.IsValid && (aa !=null))
+                {
+                    UserAreaViewModel.PageOneComplete = true;
+                    //return View(UserAreaViewModel);
+
+
+                    ViewBag.Title = "sss";
+                    return RedirectToAction("ConnectPage_two", "Connect", new {  a = UserAreaViewModel });
+                }
+
+
+
+
+                return View(UserAreaViewModel);
+                //return RedirectToAction("StartPage", "Start");
             }
             else
             {
@@ -47,18 +76,15 @@ namespace Timbi.Controllers
             }
         }
 
-        public IActionResult Logic()
-        {
-            return RedirectToAction("StartPage", "Start");
-        }
 
 
 
 
 
 
-            [HttpPost]
-        public IActionResult ConnectPage_two(UserAreaViewModel UserAreaViewModel)
+
+           
+        public IActionResult ConnectPage_two(string id)
         {
             //if (ModelState.IsValid)
             //{
@@ -69,6 +95,8 @@ namespace Timbi.Controllers
             //    return View(UserAreaViewModel);
 
             //}
+
+            
             return View();
         }
     }
