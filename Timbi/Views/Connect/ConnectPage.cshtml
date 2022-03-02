@@ -2,53 +2,157 @@
 <h1 align="center">Подключение</h1>
 <br />
 <br />
-<div>
-    <form class="col-form-label" method="post" asp-controller="Connect" asp-action="ConnectPage">
-        <p>Регион</p>
-        <select asp-for="RegionFact">
-        @foreach (Region Region in Model.Regions)
-                {
-                    <option value="@Region.RegionCompany">@Region.RegionCompany</option>
-                }           
-        </select>
-        <br />
-        <br />
-        <p>Статус</p>
-        <p></p>
-        @foreach (var status in Model.Status)
-        {
-            <input type="radio" asp-for="StatusFact" value="@status" /> @status <span asp-validation-for="StatusFact"></span> <br />
-        }
-        <br />
-        <p>Услуги</p>
-        <p></p>
-        @foreach (TypeService type in Model.TypeService)
-        {
-            <input type="radio" asp-for="TypeServiceFact" value="@type.TypeServices" /> @type.TypeServices <span asp-validation-for="TypeServiceFact"></span> <br />
 
-        }
-        <br />
-        <input type="submit" />
-        <br />
-    </form>
-</div>
-<br />
-<div>
 
-    <div class="container" align="center">
+<form align="center" class="col-form-label" method="post" asp-controller="Connect" asp-action="ConnectPage">
+
+    <div align="center" >
 
         <div class="row col-md-12">
-            @{
-                foreach (Company Company in Model.Company)
+
+            @*align="center"*@
+
+
+            <div class="col - lg - 2" style="border: thin solid black">
+                <br />
+                <p>Регион</p>
+                <select asp-for="RegionFact">
+                    @foreach (Region Region in Model.Regions)
+                    {
+                        <option value="@Region.RegionCompany">@Region.RegionCompany</option>
+                    }
+                </select>
+                <br />
+                <br />
+
+            </div>
+            <div class="col - lg - 2" style="border: thin solid black">
+                <br />
+                <p>Статус</p>
+                <p></p>
+                @foreach (var status in Model.Status)
                 {
-                    @Html.Partial("AllCompany", Company)
+                    <input type="radio" asp-for="StatusFact" value="@status" /> @status <span asp-validation-for="StatusFact"></span> <br />
                 }
-            }
+                <br />
+
+            </div>
+            <div class="col - lg - 2" style="border: thin solid black">
+                <br />
+                <p>Услуги</p>
+                <p></p>
+                @foreach (TypeService type in Model.TypeService)
+                {
+                    <input type="radio" asp-for="TypeServiceFact" value="@type.TypeServices" /> @type.TypeServices <span asp-validation-for="TypeServiceFact"></span> <br />
+
+                }
+                <br />
+
+            </div>
+
+            <br />
+            <input type="submit" />
+            <br />
+
+
         </div>
-
     </div>
+</form>
+<br />
 
-</div>
-<br />
-<br />
-<br />
+        <!--<div class="col - lg - 2" style="border: thin solid black">-->
+
+            @*<div class="container" align="center">
+
+                <div class="row col-md-12">*@
+
+
+            <!--<form class="col-form-label" method="post" asp-controller="Connect" asp-action="ConnectPage">
+                <p>Регион</p>
+                <select asp-for="RegionFact">
+                    @foreach (Region Region in Model.Regions)
+                    {
+                        <option value="@Region.RegionCompany">@Region.RegionCompany</option>
+                    }
+                </select>
+                <br />
+                <br />
+                <p>Статус</p>
+                <p></p>
+                @foreach (var status in Model.Status)
+                {
+                    <input type="radio" asp-for="StatusFact" value="@status" /> @status <span asp-validation-for="StatusFact"></span> <br />
+                }
+                <br />
+                <p>Услуги</p>
+                <p></p>
+                @foreach (TypeService type in Model.TypeService)
+                {
+                    <input type="radio" asp-for="TypeServiceFact" value="@type.TypeServices" /> @type.TypeServices <span asp-validation-for="TypeServiceFact"></span> <br />
+
+                }
+                <br />
+                <input type="submit" />
+                <br />
+            </form>
+        </div>-->
+        @*</div>
+            </div>*@
+
+
+        <!--<input type="submit" asp-controller="Connect" asp-action="ConnectPage_two" />
+
+        <p><a class="btn btn-warning" asp-controller="Connect" asp-action="ConnectPage">Добавить в корзину</a></p>-->
+
+
+
+
+
+
+
+
+
+
+
+        @*</div>
+            <br />
+            <div>*@
+
+        <div class="container" align="center">
+
+            <div class="row col-md-12">
+
+                @foreach (Company Company in Model.Company)
+                {
+                    @*@Html.Partial("AllCompany", Company)*@
+                    <div class="col - lg - 2" style="border: thin solid black">
+
+                        <input type="image" src="~/img/CompanyIcon/gaz.jpg" alt="@Company.NameCompany" />
+                        <h2 align="center">@Company.NameCompany</h2>
+                        <p><a class="btn btn-warning" asp-controller="Connect" asp-action="ConnectPage" asp-route-id="@Company.NameCompany">Добавить в корзину</a></p>
+
+
+                        <button formmethod="post" asp-controller="Connect" asp-action="ConnectPage" asp-route-company="@Company.NameCompany">  OK   </button>
+
+
+
+
+                    </div>
+
+
+                }
+
+
+
+            </div>
+
+            @*</div>*@
+
+
+
+
+
+        </div>
+        <br />
+        <br />
+        <br />

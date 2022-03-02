@@ -29,5 +29,7 @@ namespace Timbi.ViewModels
 
         public IEnumerable<Company> Company { get; set; }
 
+        public string CompanyFact { get; set; }
+
     }
 }

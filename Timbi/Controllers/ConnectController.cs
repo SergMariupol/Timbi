@@ -16,19 +16,20 @@ namespace Timbi.Controllers
             IAllUserArea = _IAllUserArea;
         }
 
-        public IActionResult ConnectPage()
+        public IActionResult ConnectPage(string? id)
         {
             UserAreaViewModel UserArea = new UserAreaViewModel();
 
             UserArea.Regions = IAllUserArea.Region;
             UserArea.TypeService = IAllUserArea.TypeService;
             UserArea.Company = IAllUserArea.Company;
+            UserArea.CompanyFact = id;
 
             return View(UserArea);
         }
 
         [HttpPost]
-        public IActionResult ConnectPage(UserAreaViewModel UserAreaViewModel)
+        public IActionResult ConnectPage(UserAreaViewModel UserAreaViewModel, string? company)
         {
             if (ModelState.IsValid)
             {
@@ -36,6 +37,7 @@ namespace Timbi.Controllers
             }
             else
             {
+                UserAreaViewModel.CompanyFact = company;
                 UserAreaViewModel.Regions = IAllUserArea.Region;
                 UserAreaViewModel.TypeService = IAllUserArea.TypeService;
                 UserAreaViewModel.Company = IAllUserArea.Company;
@@ -45,7 +47,10 @@ namespace Timbi.Controllers
             }
         }
 
-
+        public IActionResult Logic()
+        {
+            return RedirectToAction("StartPage", "Start");
+        }
 
 
 

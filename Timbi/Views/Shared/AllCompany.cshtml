@@ -1,7 +1,19 @@
 ﻿@model Company
 
 
-<div class="col - lg - 2">
-    <img class="img-thumbnail" src="@Model.img" alt="@Model.NameCompany" />
-    <h2>@Model.NameCompany</h2>
+<div class="col - lg - 2" style="border: thin solid black">
+    
+        <input type="image" src="~/img/CompanyIcon/gaz.jpg" alt="@Model.NameCompany" />
+        <h2 align="center">@Model.NameCompany</h2>
+       <p><a class="btn btn-warning" asp-controller="Connect" asp-action="ConnectPage" asp-route-id="@Model.NameCompany">Добавить в корзину</a></p>
+    
+    
+    @*<button formmethod="post" asp-controller="Connect" asp-action="ConnectPage" asp-route-company="@Model.NameCompany"  >  OK   </button>*@
+    
+    
+    
+   
 </div>
+
+
+
