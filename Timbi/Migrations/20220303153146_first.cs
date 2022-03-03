@@ -48,6 +48,20 @@ namespace Timbi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Download",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Avatar = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Download", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Main",
                 columns: table => new
                 {
@@ -292,6 +306,9 @@ namespace Timbi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Company");
+
+            migrationBuilder.DropTable(
+                name: "Download");
 
             migrationBuilder.DropTable(
                 name: "Main");

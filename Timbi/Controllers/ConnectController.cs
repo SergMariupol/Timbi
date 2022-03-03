@@ -1,19 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Timbi.Data.Interfaces;
 using Timbi.Data.Models;
 using Timbi.ViewModels;
 
+
 namespace Timbi.Controllers
 {    public class ConnectController : Controller
     {
         private readonly IAllUserArea IAllUserArea;
-        public ConnectController(IAllUserArea _IAllUserArea)
+
+        ApplicationContext _context;
+        IWebHostEnvironment _appEnvironment;
+
+
+
+        public ConnectController(IAllUserArea _IAllUserArea, ApplicationContext context, IWebHostEnvironment appEnvironment)
         {
             IAllUserArea = _IAllUserArea;
+            _context = context;
+            _appEnvironment = appEnvironment;
         }
 
         public IActionResult ConnectPage(string? id)
@@ -95,8 +107,38 @@ namespace Timbi.Controllers
             else
             {
                 return View(connect);
-            }
-                
+            }                
         }
+
+        public IActionResult ConnectDownload()
+        {
+            return View(_context.Download.ToList());
+        }
+
+
+        //[HttpPost]
+        public IActionResult Create(ConnectViewModel pvm)
+        {
+            Download person = new Download { Name = pvm.Name };
+            if (pvm.Avatar != null)
+            {
+                byte[] imageData = null;
+                // считываем переданный файл в массив байтов
+                using (var binaryReader = new BinaryReader(pvm.Avatar.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)pvm.Avatar.Length);
+                }
+                // установка массива байтов
+                person.Avatar = imageData;
+            }
+            _context.Download.Add(person);
+            _context.SaveChanges();
+
+            return RedirectToAction("StartPage","Start");
+        }
+
+
+
+
     }
 }

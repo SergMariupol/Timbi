@@ -15,5 +15,7 @@ namespace Timbi.Data.Models
         public DbSet<TypeService> TypeService { get; set; }
         public DbSet<Company> Company { get; set; }
         public DbSet<Main> Main { get; set; }
+        public DbSet<Download> Download { get; set; }
+
     }
 }

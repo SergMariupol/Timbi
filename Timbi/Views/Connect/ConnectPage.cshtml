@@ -46,43 +46,45 @@
             <br />
         </div>
     </div>
-    <br />
-   
+    <br />  
 </form>
 
-<div class="container" align="center">
+@*<div class="container" align="center">*@
 
 
     @*<form align="center" class="col-form-label" method="post" asp-controller="Connect" asp-action="ConnectPage">
         </form>*@
 
-
+<div align="center">
     <div class="row col-md-12">
 
         @foreach (Company Company in Model.Company)
         {
-            <form align="center" >
-                @*<div class="col - lg - 2">*@
+            <div class="col - lg - 2" style="border: thin solid black">
+                <form>
+                    @*<div class="col - lg - 2">*@
                     <br />
                     <br />
                     @*@Html.Partial("AllCompany", Company)*@
                     @*<div class="col - lg - 2" style="border: thin solid black">*@
-                        <input type="image" src="~/img/CompanyIcon/gaz.jpg" alt="@Company.NameCompany" />
-                        <h2 align="center">@Company.NameCompany</h2>
-                        <input type="submit" class="btn btn-warning" asp-route-id="@Company.NameCompany"  asp-controller="Connect" asp-action="ConnectPage_two" />
-                        <br />
+                    <input type="image" src="~/img/CompanyIcon/gaz.jpg" alt="@Company.NameCompany" />
+                    <h2 align="center">@Company.NameCompany</h2>
+                    <input type="submit" class="btn btn-warning" asp-route-id="@Company.NameCompany" asp-controller="Connect" asp-action="ConnectDownload" />
+                    <br />
                     @*</div>*@
-                @*</div>*@
-            </form>
+                    @*</div>*@
+                </form>
+            </div>
         }
-            <br />      
-        </div>
+        <br />
+        @*</div>*@
 
 
 
 
 
 
-            <br />
-            <br />
+        <br />
+        <br />
+    </div>
 </div>

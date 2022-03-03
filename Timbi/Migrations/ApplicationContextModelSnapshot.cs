@@ -178,6 +178,24 @@ namespace Timbi.Migrations
                     b.ToTable("Company");
                 });
 
+            modelBuilder.Entity("Timbi.Data.Models.Download", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("Avatar")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Download");
+                });
+
             modelBuilder.Entity("Timbi.Data.Models.Main", b =>
                 {
                     b.Property<int>("id")

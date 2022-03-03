@@ -43,5 +43,15 @@ namespace Timbi.Data.Models
         public string TypeConsumer { get; set; }
 
         public bool PresenceCounter { get; set; }
+
+        public byte[] FirstPassport { get; set; }
+
+        public byte[] PropiskaPassport { get; set; }
+
+        public byte[] PravoSobstven { get; set; }
+
+        public byte[] INN { get; set; }
+
+        public byte[] Dogovor { get; set; }
     }
 }
